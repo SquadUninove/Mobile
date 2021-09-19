@@ -55,7 +55,10 @@ const Cardapio = ({ navigation }) => {
 
       <View style={style.background}>
         {pontosTuristicos.map((item) => (
-          <TouchableOpacity key={item.id}>
+          <TouchableOpacity
+            key={item.id}
+            onPress={() => navigation.navigate("Comida", { item })}
+          >
             <Text>{item.nome}</Text>
           </TouchableOpacity>
         ))}

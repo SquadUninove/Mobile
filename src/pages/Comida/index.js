@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image, Button, SafeAreaView } from "react-native";
 
 import { style } from "../../components/background";
+import { useRoute } from "@react-navigation/native";
 
 export default function Comida() {
+  const route = useRoute();
+
   const [quantity, setQuantity] = useState(0);
 
   return (
@@ -11,7 +14,7 @@ export default function Comida() {
       <View style={style.background}>
         <Image source={require("../../assets/bandeja.png")} />
 
-        <Text>Descrição do produto</Text>
+        <Text>Descrição do produto {route.params.item.nome}</Text>
 
         <Text>Quantidade: {quantity}</Text>
 
