@@ -26,6 +26,19 @@ const Cardapio = ({ navigation }) => {
     });
   }
 
+  const handlePost = () => {
+    api
+      .post("ponto-turistico/", {
+        nome: "Teste",
+        descricao: "Testando Post",
+      })
+      .then(({ data }) => console.log(data));
+  };
+
+  const handleDelete = () => {
+    api.delete("ponto-turistico/6", {}).then(({ data }) => console.log(data));
+  };
+
   //Leitura QR Code
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -63,6 +76,14 @@ const Cardapio = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
+
+      <TouchableOpacity onPress={() => handlePost()}>
+        <Text>AA</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => handleDelete()}>
+        <Text>BB</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
