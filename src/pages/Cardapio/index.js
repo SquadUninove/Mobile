@@ -5,6 +5,7 @@ import {
   FlatList,
   TouchableOpacity,
   SafeAreaView,
+  Button,
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import api from "../../services/api";
@@ -25,19 +26,6 @@ const Cardapio = ({ navigation }) => {
       setPontosTuristicos(response.data);
     });
   }
-
-  const handlePost = () => {
-    api
-      .post("ponto-turistico/", {
-        nome: "Teste",
-        descricao: "Testando Post",
-      })
-      .then(({ data }) => console.log(data));
-  };
-
-  const handleDelete = () => {
-    api.delete("ponto-turistico/6", {}).then(({ data }) => console.log(data));
-  };
 
   //Leitura QR Code
   const [hasPermission, setHasPermission] = useState(null);
@@ -77,13 +65,11 @@ const Cardapio = ({ navigation }) => {
         ))}
       </View>
 
-      <TouchableOpacity onPress={() => handlePost()}>
-        <Text>AA</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => handleDelete()}>
-        <Text>BB</Text>
-      </TouchableOpacity>
+      <Button
+        title="CRUD"
+        color="#FB6400"
+        onPress={() => navigation.navigate("Crud")}
+      />
     </SafeAreaView>
   );
 };

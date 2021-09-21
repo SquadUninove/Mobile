@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Qr from "./src/pages/Qr";
 import Cardapio from "./src/pages/Cardapio";
 import Comida from "./src/pages/Comida";
+import Crud from "./src/pages/CRUD";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -16,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Qr" component={Qr} />
         <Stack.Screen name="Cardapio" component={Cardapio} />
         <Stack.Screen name="Comida" component={Comida} />
+        <Stack.Screen name="Crud" component={Crud} />
       </Stack.Navigator>
     </NavigationContainer>
   );
