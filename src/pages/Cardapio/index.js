@@ -9,14 +9,15 @@ import {
 } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import api from "../../services/api";
-
 import { style } from "../../components/background";
 
 const Cardapio = ({ navigation }) => {
-  //API
-
   const [pontosTuristicos, setPontosTuristicos] = useState([]);
+  const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
+  const [displayQR, setDisplayQR] = useState("flex");
 
+  //API
   useEffect(() => {
     getPontosTuristicos();
   }, []);
@@ -28,10 +29,6 @@ const Cardapio = ({ navigation }) => {
   }
 
   //Leitura QR Code
-  const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
-  const [displayQR, setDisplayQR] = useState("flex");
-
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();

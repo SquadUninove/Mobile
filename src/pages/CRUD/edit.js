@@ -8,15 +8,15 @@ export default function edit() {
   const [descricao, setDescricao] = useState("");
   const route = useRoute();
 
-  const handleUpdate = () => {
-    api
-      .put(`ponto-turistico/${route.params.item.id}/`, { nome, descricao })
-      .then(({ data }) => console.log(data));
-  };
-
   const handleDelete = () => {
     api
       .delete(`ponto-turistico/${route.params.item.id}/`)
+      .then(({ data }) => console.log(data));
+  };
+
+  const handleUpdate = () => {
+    api
+      .put(`ponto-turistico/${route.params.item.id}/`, { nome, descricao })
       .then(({ data }) => console.log(data));
   };
 

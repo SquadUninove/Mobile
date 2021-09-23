@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, Button, SafeAreaView } from "react-native";
-
 import { style } from "../../components/background";
 import { useRoute } from "@react-navigation/native";
 
 export default function Comida() {
   const route = useRoute();
-
   const [quantity, setQuantity] = useState(0);
 
   return (

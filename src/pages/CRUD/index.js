@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Button, TextInput, TouchableOpacity } from "react-native";
-
 import { style } from "../../components/background";
 import api from "../../services/api";
 
 export default function CRUD({ navigation }) {
   const [pontosTuristicos, setPontosTuristicos] = useState([]);
+  const [nome, setNome] = useState("");
+  const [descricao, setDescricao] = useState("");
 
   useEffect(() => {
     getPontosTuristicos();
   }, []);
 
-  async function getPontosTuristicos() {
-    await api.get("ponto-turistico/").then((response) => {
+  function getPontosTuristicos() {
+    api.get("ponto-turistico/").then((response) => {
       setPontosTuristicos(response.data);
     });
   }
@@ -22,9 +23,6 @@ export default function CRUD({ navigation }) {
       .post("ponto-turistico/", { nome, descricao })
       .then(({ data }) => console.log(data));
   };
-
-  const [nome, setNome] = useState("");
-  const [descricao, setDescricao] = useState("");
 
   return (
     <View>

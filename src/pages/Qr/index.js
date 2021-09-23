@@ -6,7 +6,6 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
-
 import { style } from "../../components/background";
 
 export default function Qr({ navigation }) {
