@@ -10,7 +10,7 @@ export default function edit() {
 
   const handleUpdate = () => {
     api
-      .put("ponto-turistico/", { nome, descricao })
+      .put(`ponto-turistico/${route.params.item.id}/`, { nome, descricao })
       .then(({ data }) => console.log(data));
   };
 

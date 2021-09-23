@@ -11,8 +11,8 @@ export default function CRUD({ navigation }) {
     getPontosTuristicos();
   }, []);
 
-  function getPontosTuristicos() {
-    api.get("ponto-turistico/").then((response) => {
+  async function getPontosTuristicos() {
+    await api.get("ponto-turistico/").then((response) => {
       setPontosTuristicos(response.data);
     });
   }
