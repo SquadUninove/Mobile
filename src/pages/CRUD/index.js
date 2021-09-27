@@ -12,17 +12,16 @@ export default function CRUD({ navigation }) {
     getPontosTuristicos();
   }, []);
 
-  function getPontosTuristicos() {
-    api.get("ponto-turistico/").then((response) => {
+  async function getPontosTuristicos() {
+    await api.get("ponto-turistico/").then((response) => {
       setPontosTuristicos(response.data);
     });
   }
 
-  const handlePost = () => {
-    api
-      .post("ponto-turistico/", { nome, descricao })
-      .then(({ data }) => console.log(data));
-  };
+  function Adicionar() {
+    api.post("ponto-turistico/", { nome, descricao });
+    navigation.navigate("Qr");
+  }
 
   return (
     <View>
@@ -56,7 +55,7 @@ export default function CRUD({ navigation }) {
       <Button
         title="Adicionar a API"
         color="#FB6400"
-        onPress={() => handlePost()}
+        onPress={() => Adicionar()}
       />
     </View>
   );

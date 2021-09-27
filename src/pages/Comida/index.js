@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, Image, Button, SafeAreaView } from "react-native";
 import { style } from "../../components/background";
 import { useRoute } from "@react-navigation/native";

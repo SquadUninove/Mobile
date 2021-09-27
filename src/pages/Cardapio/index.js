@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  FlatList,
   TouchableOpacity,
   SafeAreaView,
   Button,
@@ -22,8 +21,8 @@ const Cardapio = ({ navigation }) => {
     getPontosTuristicos();
   }, []);
 
-  function getPontosTuristicos() {
-    api.get("ponto-turistico/").then((response) => {
+  async function getPontosTuristicos() {
+    await api.get("ponto-turistico/").then((response) => {
       setPontosTuristicos(response.data);
     });
   }

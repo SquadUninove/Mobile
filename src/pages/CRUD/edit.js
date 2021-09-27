@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import api from "../../services/api";
 
-export default function edit() {
+export default function edit({ navigation }) {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const route = useRoute();
 
-  const handleDelete = () => {
-    api
-      .delete(`ponto-turistico/${route.params.item.id}/`)
-      .then(({ data }) => console.log(data));
-  };
+  function Delete() {
+    api.delete(`ponto-turistico/${route.params.item.id}/`);
+    navigation.navigate("Qr");
+  }
 
-  const handleUpdate = () => {
-    api
-      .put(`ponto-turistico/${route.params.item.id}/`, { nome, descricao })
-      .then(({ data }) => console.log(data));
-  };
+  function Update() {
+    api.put(`ponto-turistico/${route.params.item.id}/`, { nome, descricao });
+    navigation.navigate("Qr");
+  }
 
   return (
     <View>
@@ -41,16 +39,12 @@ export default function edit() {
 
       <Text style={{ marginBottom: 20 }}>{descricao}</Text>
 
-      <Button
-        title="Remover da API"
-        color="#FB6400"
-        onPress={() => handleDelete()}
-      />
+      <Button title="Remover da API" color="#FB6400" onPress={() => Delete()} />
 
       <Button
         title="Modificar dados na API"
         color="#FB6400"
-        onPress={() => handleUpdate()}
+        onPress={() => Update()}
       />
     </View>
   );
