@@ -8,30 +8,37 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { style } from "../../components/background";
+import { estiloLogin } from "./styles";
 
 export default function Login({ navigation }) {
   return (
     <SafeAreaView style={style.background}>
       <View>
         <Image
-          style={{
-            height: 100,
-            width: 200,
-          }}
+          style={estiloLogin.imagemLogo}
           source={require("../../assets/FoodMenu.png")}
         />
-        <TextInput style={{ borderWidth: 1 }} />
-        <TextInput style={{ borderWidth: 1 }} />
+
+        <TextInput placeholder="Email" style={estiloLogin.textInput} />
+        <TextInput placeholder="Senha" style={estiloLogin.textInput} />
+
         <TouchableOpacity>
-          <Text>Esqueceu senha</Text>
+          <Text style={estiloLogin.textoNormal}>Esqueceu senha</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Qr")}>
-          <Text>Entrar</Text>
+
+        <TouchableOpacity
+          style={estiloLogin.botaoAzul}
+          onPress={() => navigation.navigate("Qr")}
+        >
+          <Text style={estiloLogin.textoBotao}>Entrar</Text>
         </TouchableOpacity>
-        <Text>ou</Text>
+
+        <Text style={estiloLogin.textoNormal}>ou</Text>
+
         <TouchableOpacity>
           <Text>Entrar com Google</Text>
         </TouchableOpacity>
+
         <TouchableOpacity>
           <Text>Entrar com Facebook</Text>
         </TouchableOpacity>

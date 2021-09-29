@@ -9,30 +9,56 @@ import {
   Image,
 } from "react-native";
 import { style } from "../../components/background";
+import { estiloCadastro } from "./styles";
 
 export default function Cadastro({ navigation }) {
   return (
     <SafeAreaView style={style.background}>
       <View>
         <Image
-          style={{
-            height: 100,
-            width: 200,
-          }}
+          style={estiloCadastro.imagemLogo}
           source={require("../../assets/FoodMenu.png")}
         />
-        <TextInput style={{ borderWidth: 1 }}></TextInput>
-        <TextInput style={{ borderWidth: 1 }}></TextInput>
-        <TextInput style={{ borderWidth: 1 }}></TextInput>
-        <TextInput style={{ borderWidth: 1 }}></TextInput>
-        <TextInput style={{ borderWidth: 1 }}></TextInput>
+        <View style={estiloCadastro.backgroundTextInput}>
+          <TextInput
+            placeholder="Nome"
+            style={estiloCadastro.textInput}
+          ></TextInput>
 
-        <Text>Confirmar Email</Text>
-        <Text>Li e Aceito os Termos</Text>
+          <TextInput
+            placeholder="Email"
+            style={estiloCadastro.textInput}
+          ></TextInput>
 
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <Text>Cadastrar</Text>
-        </TouchableOpacity>
+          <TextInput
+            placeholder="CPF"
+            style={estiloCadastro.textInput}
+          ></TextInput>
+
+          <TextInput
+            placeholder="Senha"
+            style={estiloCadastro.textInput}
+          ></TextInput>
+
+          <TextInput
+            placeholder="Confirmar Senha"
+            style={estiloCadastro.textInput}
+          ></TextInput>
+
+          <View style={estiloCadastro.viewCadastrar}>
+            <Text style={estiloCadastro.textoNormal}>Confirmar Email</Text>
+            <Text style={estiloCadastro.textoNormal}>
+              Li e Aceito os Termos
+            </Text>
+
+            <TouchableOpacity
+              style={estiloCadastro.botaoLaranja}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={estiloCadastro.textoBotao}>Cadastrar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
